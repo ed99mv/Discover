@@ -1,5 +1,3 @@
-
-
 class Users::RegistrationsController < Devise::RegistrationsController
   include RackSessionsFix
   respond_to :json
@@ -12,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # POST /resource
     def create
       super
+      @user.add_role :user
     end
   private
 
